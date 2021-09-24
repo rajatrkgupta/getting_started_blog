@@ -33,3 +33,22 @@ run
 add in app/controllers/application_controller.rb
   before_action :authenticate_user!
 
+
+generatting devise MVC
+  add in config/initializers/devise.rb (we are doing this bcs want to show all devise view in users directory not devise)
+    config.scoped_views = true
+
+  run (to generate devise view in users scope)
+    rails generate devise:views users
+
+  run (to generate devise controllers in users scope)
+    rails generate devise:controllers users
+
+  add in config/routes.rb
+    devise_for :users, controllers: {
+      sessions: 'users/sessions',
+      registrations: 'users/registrations',
+      passwords: 'users/passwords',
+    }
+
+    and remove exisitng devise_for :users
