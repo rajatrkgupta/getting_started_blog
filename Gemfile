@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 
 # flexible authentication solution
 gem 'devise'
+gem 'activeadmin'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
