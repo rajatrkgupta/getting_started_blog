@@ -12,17 +12,21 @@
   </head>
 
   <body>
-    <!-- this temporary code -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <!-- this temporary code -->
+      <% if current_user.present? %>
+        <div>
+          <h2><%= link_to("Logout", destroy_user_session_path, :method => :delete) %></h2>
+        </div>
+      <% end %>
 
-    <!-- this temporary code -->
-    <% if current_user.present? %>
-      <div>
-        <h2><%= link_to("Logout", destroy_user_session_path, :method => :delete) %></h2>
-      </div>
-    <% end %>
+      <!-- this temporary code -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
