@@ -8,6 +8,14 @@
   </div>
 
   <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
+    <% article.errors.full_messages_for(:image).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
@@ -20,7 +28,7 @@
     <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
   </div>
 
-  <div>
+  <div class="mt-2">
     <%= form.submit %>
   </div>
 <% end %>

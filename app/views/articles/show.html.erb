@@ -1,5 +1,16 @@
 <h1><%= @article.title %></h1>
 
+<% if @article.image.persisted? %>
+  <%= image_tag @article.image, size: "400x300", alt: "Edit Entry", data: { title: 'Rails Application' } %>
+
+  <p class="mt-2">
+    <%= link_to "Download Original", rails_blob_path(@article.image, disposition: 'attachment') %> |
+    <!-- For it we need to add/uncomment image processing gem -->
+    <%= link_to "Download JPG", @article.image.variant(format: :jpg), download: true %> |
+    <%= link_to "Download PNG", @article.image.variant(format: :png), download: true %>
+  </p>
+<% end %>
+
 <p><%= @article.body %></p>
 
 <ul>
