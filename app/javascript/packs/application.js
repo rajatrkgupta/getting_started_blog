@@ -9,6 +9,8 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 import "../stylesheets/application"
+import Cropper from 'cropperjs'
+window.Cropper = Cropper
 
 Rails.start()
 Turbolinks.start()
