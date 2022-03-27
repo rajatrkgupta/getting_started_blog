@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <%= link_to "First APP", root_path, class:"navbar-brand text-decoration-none" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Articles", articles_path, class:"nav-item nav-link text-decoration-none" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "New Article", new_article_path, class:"nav-item nav-link text-decoration-none" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "G-Trans", "#", class: "nav-item nav-link text-decoration-none" %>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <% if current_user.present? %>
+            <li><%= link_to "Logout", destroy_user_session_path, class: "nav-item nav-link text-decoration-none", method: :delete %></li>
+          <% end %>
+        </ul>
+      </span>
+    </div>
+  </div>
+</nav>

@@ -1,13 +1,34 @@
 <h1>Articles</h1>
 
-Our blog has <%= Article.public_count %> articles and counting!
-
-<ul>
+<div class="row row-cols-1 row-cols-md-4 g-4">
   <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article %>
-    </li>
+    <div class="col">
+      <div class="card h-100">
+        <%= show_articles_index_card_image(article) %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to article.title, article_path(article), class: "text-decoration-none" %></h5>
+          <p class="card-text">
+            <%=h truncate(article.body, length: 70) %>
+          </p>
+          <p class="card-text">
+            <% if article.image.persisted? %>
+              Download Image:
+              <%= link_to "Original", rails_blob_path(article.image, disposition: 'attachment') %> |
+              <!-- For it we need to add/uncomment image processing gem -->
+              <%= link_to "JPG", article.image.variant(format: :jpg), download: true %> |
+              <%= link_to "PNG", article.image.variant(format: :png), download: true %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
-<%= link_to "New Article", new_article_path %>
+<style type="text/css">
+  .card-img-top {
+    width: 100%;
+    height: 10vw;
+    object-fit: cover;
+  }
+</style>
