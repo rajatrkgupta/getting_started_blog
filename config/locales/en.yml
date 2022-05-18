@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  articles:
+    like_toggle:
+      like: "This article liked succfully"
+      dislike: "This article disliked succfully"
+  comments:
+    like_toggle:
+      like: "Comment liked succfully"
+      dislike: "Comment disliked succfully"

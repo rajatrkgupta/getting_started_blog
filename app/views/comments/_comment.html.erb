@@ -9,6 +9,7 @@
 </p>
 
 <p>
+  <%= like_toggle_link(comment) %> <span>(<%= comment.likes.count %>)</span> |
   <%= link_to 'Destroy Comment', [comment.article, comment],
               method: :delete,
               data: { confirm: "Are you sure?" } %>

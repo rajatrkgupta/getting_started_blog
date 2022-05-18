@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_20_180028) do
+ActiveRecord::Schema.define(version: 2022_05_18_205046) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 2022_02_20_180028) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "liked_to_type", null: false
+    t.integer "liked_to_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["liked_to_type", "liked_to_id"], name: "index_likes_on_liked_to_type_and_liked_to_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

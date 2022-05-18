@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   root "articles#index"
 
+  post "like/:record_type/:record_id", to: "likes#like_toggle", as: "like_record"
+
   resources :articles do
     resources :comments
   end

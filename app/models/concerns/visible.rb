@@ -16,4 +16,8 @@ module Visible
   def archived?
     status == 'archived'
   end
+
+  def is_liked_by_user?(user_id)
+    self.likes.find_by_user_id(user_id).present?
+  end
 end
